@@ -1,0 +1,12 @@
+runtime: php82
+
+handlers:
+  # (1) index.html も静的ファイルとして表示させたい場合
+  # これを書かないと index.html があっても無視されたり、PHPとして処理しようとしてエラーになることがあります
+  - url: /index.html
+    static_files: public/index.html
+    upload: public/index.html
+
+  # (2) それ以外は index.php (PHPプログラム) に任せる
+  - url: .*
+    script: auto
