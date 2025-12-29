@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kakomon Portal</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    
+    <!-- Background Gradient Blob (Optional for Apple look) -->
+    <div class="bg-gradient"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="hamburger-menu" id="hamburgerBtn">
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="logo">
+                <span style="font-size: 1.2rem;">📚</span> <span data-i18n="logo">Kakomon</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button id="uploadBtn" class="btn-primary" data-i18n="upload_btn">
+                + Upload
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="container main-content">
+        <section class="hero">
+            <h1 data-i18n="hero_title">Find Past Tests</h1>
+            <p data-i18n="hero_desc">Access the collection of past exams and practice materials.</p>
+            
+            <div class="search-bar">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Search for subjects, years..." data-i18n-placeholder="search_placeholder">
+            </div>
+
+            <!-- Tag Filter -->
+            <div class="tag-filters">
+                <button class="tag active" data-filter="all">All</button>
+                <button class="tag" data-filter="Japanese">Japanese</button>
+                <button class="tag" data-filter="English">English</button>
+                <button class="tag" data-filter="Math">Math</button>
+                <button class="tag" data-filter="Science">Science</button>
+                <button class="tag" data-filter="Social Studies">Social Studies</button>
+            </div>
+        </section>
+
+        <main class="file-grid">
+            <!-- Files will be injected here by JS -->
+        </main>
+    </div>
+
+    <!-- Upload Modal -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 data-i18n="upload_title">Upload File</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            
+            <form id="uploadForm">
+                <div id="uploadArea" class="upload-area">
+                    <div class="icon-cloud">☁️</div>
+                    <p data-i18n="upload_area">Click to browse or drag file here</p>
+                    <input type="file" id="fileInput" hidden>
+                </div>
+                <div id="selectedFileName" style="text-align:center; margin-top: 10px; font-weight: 500;"></div>
+
+                <div class="form-group">
+                    <label>Tags</label>
+                    <div class="tag-selection">
+                        <label class="tag-checkbox"><input type="checkbox" name="tags" value="Japanese"> Japanese</label>
+                        <label class="tag-checkbox"><input type="checkbox" name="tags" value="English"> English</label>
+                        <label class="tag-checkbox"><input type="checkbox" name="tags" value="Math"> Math</label>
+                        <label class="tag-checkbox"><input type="checkbox" name="tags" value="Science"> Science</label>
+                        <label class="tag-checkbox"><input type="checkbox" name="tags" value="Social Studies"> Social Studies</label>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">Upload</button>
+                </div>
+                
+                <div class="loading-spinner"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
