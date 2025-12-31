@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kakomon Portal</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-    
+
     <!-- Background Gradient Blob (Optional for Apple look) -->
     <div class="bg-gradient"></div>
 
@@ -23,6 +25,11 @@
             </div>
         </div>
         <div class="nav-right">
+            <select id="langSelect"
+                style="margin-right: 10px; padding: 4px; border-radius: 6px; border: 1px solid #ccc;">
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+            </select>
             <button id="uploadBtn" class="btn-primary" data-i18n="upload_btn">
                 + Upload
             </button>
@@ -43,10 +50,11 @@
         <section class="hero">
             <h1 data-i18n="hero_title">Find Past Tests</h1>
             <p data-i18n="hero_desc">Access the collection of past exams and practice materials.</p>
-            
+
             <div class="search-bar">
                 <span class="search-icon">🔍</span>
-                <input type="text" placeholder="Search for subjects, years..." data-i18n-placeholder="search_placeholder">
+                <input type="text" placeholder="Search for subjects, years..."
+                    data-i18n-placeholder="search_placeholder">
             </div>
 
             <!-- Tag Filter -->
@@ -72,7 +80,7 @@
                 <h2 data-i18n="upload_title">Upload File</h2>
                 <span class="close-modal">&times;</span>
             </div>
-            
+
             <form id="uploadForm">
                 <div id="uploadArea" class="upload-area">
                     <div class="icon-cloud">☁️</div>
@@ -84,18 +92,20 @@
                 <div class="form-group">
                     <label>Tags</label>
                     <div class="tag-selection">
-                        <label class="tag-checkbox"><input type="checkbox" name="tags" value="Japanese"> Japanese</label>
+                        <label class="tag-checkbox"><input type="checkbox" name="tags" value="Japanese">
+                            Japanese</label>
                         <label class="tag-checkbox"><input type="checkbox" name="tags" value="English"> English</label>
                         <label class="tag-checkbox"><input type="checkbox" name="tags" value="Math"> Math</label>
                         <label class="tag-checkbox"><input type="checkbox" name="tags" value="Science"> Science</label>
-                        <label class="tag-checkbox"><input type="checkbox" name="tags" value="Social Studies"> Social Studies</label>
+                        <label class="tag-checkbox"><input type="checkbox" name="tags" value="Social Studies"> Social
+                            Studies</label>
                     </div>
                 </div>
 
                 <div class="modal-actions">
                     <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">Upload</button>
                 </div>
-                
+
                 <div class="loading-spinner"></div>
             </form>
         </div>
@@ -103,4 +113,5 @@
 
     <script src="/js/app.js"></script>
 </body>
+
 </html>

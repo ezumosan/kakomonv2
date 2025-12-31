@@ -1,0 +1,15 @@
+2025-12-29 19:35:44,337 - INFO - Receiving upload. Content-Length: 6846
+2025-12-29 19:35:44,355 - DEBUG - Headers: Host: 127.0.0.1:8080
+User-Agent: curl/8.7.1
+Accept: */*
+Content-Length: 6846
+Content-Type: multipart/form-data; boundary=------------------------eq9GHT7v2wnatfztrN4Gj0
+
+
+2025-12-29 19:35:44,355 - INFO - Body read successfully
+2025-12-29 19:35:44,356 - INFO - Message is multipart
+2025-12-29 19:35:44,356 - DEBUG - Processing part: name=file
+2025-12-29 19:35:44,356 - DEBUG - Found file part: filename=server.py
+2025-12-29 19:35:44,356 - DEBUG - Processing part: name=tags
+2025-12-29 19:35:44,356 - DEBUG - Found tags: ['Test']
+2025-12-29 19:35:44,356 - INFO - File saved to public/uploads/server_1767004544.py

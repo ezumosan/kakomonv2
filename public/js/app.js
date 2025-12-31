@@ -23,8 +23,67 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentFilterTag = 'all';
 
     // --- State & i18n ---
-    // (Preserve existing i18n structure - simplified for brevity but logic applies)
-    // For this step I'll focus on functionality, assuming i18n is re-integrated or separate.
+    const translations = {
+        en: {
+            logo: "Kakomon",
+            upload_btn: "+ Upload",
+            hero_title: "Find Past Tests",
+            hero_desc: "Access the collection of past exams and practice materials.",
+            search_placeholder: "Search for subjects, years...",
+            upload_title: "Upload File",
+            upload_area: "Click to browse or drag file here",
+            search_all: "All",
+            search_japanese: "Japanese",
+            search_english: "English",
+            search_math: "Math",
+            search_science: "Science",
+            search_social: "Social Studies"
+        },
+        ja: {
+            logo: "過去問",
+            upload_btn: "+ アップロード",
+            hero_title: "過去問を探す",
+            hero_desc: "過去の試験問題や練習資料にアクセスしよう。",
+            search_placeholder: "科目や年度を検索...",
+            upload_title: "ファイルをアップロード",
+            upload_area: "クリックしてファイルを選択",
+            search_all: "すべて",
+            search_japanese: "国語",
+            search_english: "英語",
+            search_math: "数学",
+            search_science: "理科",
+            search_social: "社会"
+        }
+    };
+
+    const langSelect = document.getElementById('langSelect');
+
+    function updateLanguage(lang) {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.dataset.i18n;
+            if (translations[lang][key]) {
+                el.textContent = translations[lang][key];
+            }
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (translations[lang][key]) {
+                el.placeholder = translations[lang][key];
+            }
+        });
+
+        // Update tag filter text if they have specific mapping, or add data-i18n to them
+        // For simplicity, let's just leave tags as is or assume they map to data-filter
+    }
+
+    langSelect.addEventListener('change', (e) => {
+        updateLanguage(e.target.value);
+    });
+
+    // Detect language
+    const userLang = navigator.language.startsWith('ja') ? 'ja' : 'en';
+    langSelect.value = userLang;
+    updateLanguage(userLang);
 
     // --- Sidebar Logic ---
     function toggleSidebar() {
