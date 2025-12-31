@@ -25,7 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- State & i18n ---
     const translations = {
         en: {
-            logo: "Kakomon",
+            logo: "Kakomon-Portal β",
+            title: "Kakomon-Portal β",
             upload_btn: "+ Upload",
             hero_title: "Find Past Tests",
             hero_desc: "Access the collection of past exams and practice materials.",
@@ -40,7 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
             search_social: "Social Studies"
         },
         ja: {
-            logo: "過去問",
+            logo: "過去問ポータルβ版",
+            title: "過去問ポータルβ版",
             upload_btn: "+ アップロード",
             hero_title: "過去問を探す",
             hero_desc: "過去の試験問題や練習資料にアクセスしよう。",
@@ -59,6 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const langSelect = document.getElementById('langSelect');
 
     function updateLanguage(lang) {
+        // Update Title
+        if (translations[lang].title) {
+            document.title = translations[lang].title;
+        }
+
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.dataset.i18n;
             if (translations[lang][key]) {

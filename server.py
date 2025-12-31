@@ -13,12 +13,12 @@ from email.policy import default
 
 # Configure logging
 logging.basicConfig(
-    filename='server_debug.log',
+    filename=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'server_debug.log'),
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
-PORT = 8080
+PORT = 8090
 UPLOAD_DIR = 'public/uploads'
 DATA_FILE = 'data.json'
 PASSWORD = "2026"
@@ -81,7 +81,7 @@ class SimpleHandler(http.server.SimpleHTTPRequestHandler):
                 json.dump(file_data, f)
             
             for fname in real_files:
-                if fname.startswith('.'): continue
+                if fname.startswith('.') or fname.endswith('.py') or fname.endswith('.log') or fname == 'data.json': continue
                 fpath = os.path.join(UPLOAD_DIR, fname)
                 try:
                     stat = os.stat(fpath)
